@@ -2,9 +2,16 @@
 
 expenses = []  # list of dictionaries
 
+
 def add_expense():
-    category = input("Enter expense category: ")
-    amou5nt = float(input("Enter amount: "))
+    category = input("Enter expense category: ").strip()
+    
+    try:
+        amount = float(input("Enter amount: "))
+    except ValueError:
+        print("Invalid amount. Please enter a number.\n")
+        return
+
     expense = {
         "category": category,
         "amount": amount
@@ -12,38 +19,55 @@ def add_expense():
     expenses.append(expense)
     print("Expense added successfully!\n")
 
+
 def total_spent():
+    if not expenses:
+        print("No expenses recorded yet.\n")
+        return
+
     total = sum(exp["amount"] for exp in expenses)
     print(f"Total amount spent: ₹{total}\n")
+
 
 def highest_expense():
     if not expenses:
         print("No expenses recorded yet.\n")
         return
+
     highest = max(expenses, key=lambda x: x["amount"])
     print("Highest Expense:")
     print(f"Category: {highest['category']}, Amount: ₹{highest['amount']}\n")
 
+
 def view_by_category():
-    category = input("Enter category to view: ")
+    if not expenses:
+        print("No expenses recorded yet.\n")
+        return
+
+    category = input("Enter category to view: ").strip()
     found = False
+
     print(f"Expenses in category '{category}':")
     for exp in expenses:
         if exp["category"].lower() == category.lower():
             print(f"₹{exp['amount']}")
             found = True
+
     if not found:
         print("No expenses found in this category.")
     print()
+
 
 def show_all_expenses():
     if not expenses:
         print("No expenses to show.\n")
         return
+
     print("All Expenses:")
     for i, exp in enumerate(expenses, start=1):
         print(f"{i}. {exp['category']} - ₹{exp['amount']}")
     print()
+
 
 # Menu-driven program
 while True:
@@ -55,7 +79,7 @@ while True:
     print("5. Show All Expenses")
     print("6. Exit")
 
-    choice = input("Enter your choice (1-6): ")
+    choice = input("Enter your choice (1-6): ").strip()
 
     if choice == "1":
         add_expense()
