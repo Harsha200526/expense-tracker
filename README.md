@@ -300,17 +300,17 @@ flowchart TD
     AJ3 -.->|"Fail - revise Target SPEC"| GS
     AJ4 -.->|"Fail - remediate deployment"| TCONT
 
-    classDef artifact fill:transparent,stroke:#555555,stroke-width:1.5px,color:inherit
-    classDef hub fill:transparent,stroke:#000000,stroke-width:2.5px,color:inherit
-    classDef judge fill:transparent,stroke:#000000,stroke-width:2px,stroke-dasharray:4 2,color:inherit
+    classDef artifact fill:transparent,stroke:#ffffff,stroke-width:1.5px,color:#ffffff
+    classDef hub fill:transparent,stroke:#ffffff,stroke-width:2.5px,color:#ffffff
+    classDef judge fill:transparent,stroke:#ffffff,stroke-width:2px,stroke-dasharray:4 2,color:#ffffff
 
     class GC,OC,DC,CG,SVC,GTA,TA,TBS,TSPEC,TCODE,TCONT,SV,LG,AL,MN,LD artifact
     class CS,CBS,GS,TOPS hub
     class AJ1,AJ2,AJ3,AJ4 judge
 
-    style P1 fill:transparent,stroke:#000000,stroke-width:3px
-    style P2 fill:transparent,stroke:#000000,stroke-width:3px
-    style P3 fill:transparent,stroke:#000000,stroke-width:3px
+    style P1 fill:transparent,stroke:#ffffff,stroke-width:3px,color:#ffffff
+    style P2 fill:transparent,stroke:#ffffff,stroke-width:3px,color:#ffffff
+    style P3 fill:transparent,stroke:#ffffff,stroke-width:3px,color:#ffffff
 ```
 
 ---
